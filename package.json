@@ -26,7 +26,8 @@
     "safe-json-parse": "^2.0.0",
     "semver": "^4.0.3",
     "sorted-object": "^1.0.0",
-    "string-template": "^0.2.0"
+    "string-template": "^0.2.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "fixtures-fs": "^2.0.0",
@@ -43,7 +44,9 @@
     "jshint": "jshint --verbose .",
     "cover": "istanbul cover --report none --print detail test/index.js",
     "view-cover": "istanbul report html && open ./coverage/index.html",
-    "travis": "npm run cover -s && istanbul report lcov && ((cat coverage/lcov.info | coveralls) || exit 0)"
+    "travis": "npm run cover -s && istanbul report lcov && ((cat coverage/lcov.info | coveralls) || exit 0)",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "pre-commit": [
     "jshint-pre-commit",
@@ -55,5 +58,6 @@
   "license": "MIT",
   "engine": {
     "node": ">= 0.10.x"
-  }
+  },
+  "snyk": true
 }
